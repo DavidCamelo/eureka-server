@@ -4,7 +4,8 @@ COPY pom.xml /home/app
 COPY mvnw /home/app
 COPY .mvn /home/app/.mvn
 RUN chmod +x /home/app/mvnw
-RUN ./home/app/mvnw clean package -DskipTests --no-transfer-progress
+WORKDIR /home/app
+RUN ./mvnw clean package -DskipTests --no-transfer-progress
 RUN rm -rf /root/.m2/repository
 
 FROM eclipse-temurin:21-jre-jammy AS final
