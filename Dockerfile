@@ -4,8 +4,6 @@ COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests --no-transfer-progress
 RUN rm -rf /root/.m2/repository
-COPY target ../
-RUN rm -rf /home/app
 
 FROM eclipse-temurin:21-jre-jammy AS final
 COPY --from=build /home/target/*.jar /usr/local/lib/app.jar
