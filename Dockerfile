@@ -1,4 +1,8 @@
 FROM eclipse-temurin:21-jdk-jammy AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+COPY mvnw /home/app
+COPY .mvn /home/app/.mvn
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests --no-transfer-progress
 RUN rm -rf /root/.m2/repository
