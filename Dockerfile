@@ -1,4 +1,5 @@
 FROM eclipse-temurin:21-jdk-jammy AS build
+WORKDIR /app
 RUN ./mvnw clean package -DskipTests
 RUN rm -rf /root/.m2/repository
 
