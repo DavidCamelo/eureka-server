@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21-jdk-jammy AS build
-WORKDIR /app
-RUN ./mvnw clean package -DskipTests
+RUN chmod +x mvnw
+RUN ./mvnw clean package -DskipTests --no-transfer-progress
 RUN rm -rf /root/.m2/repository
 
 FROM eclipse-temurin:21-jre-jammy AS final
