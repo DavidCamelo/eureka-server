@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     env:
       DOCKER_TARGET_PLATFORM: linux/amd64,linux/arm64
       DOCKER_USERNAME: ${{secrets.DOCKER_USER}}
